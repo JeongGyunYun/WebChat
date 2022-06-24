@@ -5,11 +5,7 @@ const { v4: uuidv4 } = require("uuid");
 const mongoose = require('mongoose');
 const expressSession = require('express-session')
 
-const io = require("socket.io")(server, {
-  cors: {
-    origin: '*'
-  }
-});
+const io = require("socket.io")(server);
 
 const { ExpressPeerServer } = require("peer");
 const peerServer = ExpressPeerServer(server, {
