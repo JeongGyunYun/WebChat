@@ -60,7 +60,6 @@ app.get("/", homeController);
 app.get('/auth/logout', logoutController);
 
 
-
 mongoose.connect('mongodb+srv://abcdogs:kTRXBna7tyakkqLB@cluster0.4nunwry.mongodb.net/test', {
     useNewUrlParser: true
 })
