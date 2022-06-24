@@ -8,6 +8,7 @@ var peer = new Peer(undefined, {
   port: "443",
 });
 
+const user = " "
 
 let myVideoStream;
 myVideo.muted = true;
@@ -43,7 +44,7 @@ const connectToNewUser = (userId, stream) => {
 };
 
 peer.on("open", (id) => {
-  socket.emit("join-room", ROOM_ID, id);
+  socket.emit("join-room", ROOM_ID, id, user);
 });
 
 const addVideoStream = (video, stream) => {

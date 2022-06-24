@@ -39,8 +39,6 @@ io.on('connection', (socket) => {
 })
 
 
-
-
 const newUserController = require('./controllers/newUser');
 const storeUserController = require("./controllers/storeUser");
 const loginUserController = require("./controllers/loginUser")
