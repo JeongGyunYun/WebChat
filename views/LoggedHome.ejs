@@ -4,14 +4,43 @@
     <meta charset="UTF-8"/>
     <link rel="icon" href="data:,"/>
     <title>Login</title>
+    <style>
+        .login {
+            width: 500px;
+            margin: 200px auto auto auto;
+            text-align: center;
+        }
+
+        body {
+            background-image: url("../public/img/loginBackground.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .button {
+            margin: 20px;
+            position: relative;
+            border: none;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+            background-color: #77af9c;
+            color: #d7fff1;
+        }
+    </style>
 </head>
 <body>
-<div>
-    <button type="button">
+<div class="login">
+    <button class="button" type="button">
         <a href="/auth/logout">Logout
         </a></button>
     <br>
-    <button type="button">
+    <button class="button" type="button">
         <a href="/chat/start">Chat Start
         </a></button><br>
 </div>

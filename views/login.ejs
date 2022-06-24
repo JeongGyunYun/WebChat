@@ -3,22 +3,52 @@
 <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="data:,"/>
+    <style>
+        .login {
+            width: 500px;
+            margin: 200px auto auto auto;
+            text-align: center;
+        }
+
+        body {
+            background-image: url("../public/img/loginBackground.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .button {
+            margin: 20px;
+            position: relative;
+            border: none;
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 15px;
+            font-family: "paybooc-Light", sans-serif;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.25s;
+            background-color: #77af9c;
+            color: #d7fff1;
+        }
+    </style>
     <title>Login</title>
+    <h2>Login</h2>
 </head>
 <body>
-<div>
+<div class="login">
     <form action="/users/login" method="post">
         <div>
             <label>User Name</label>
-            <input id="username" name="username" type="text" value="aaa" placeholder="User Name"/>
+            <input id="username" name="username" type="text" placeholder="User Name"/>
         </div>
         <div>
             <label>Password</label>
-            <input id="password" name="password" type="password" placeholder="Password" value="bbb"/>
+            <input id="password" name="password" type="password" placeholder="Password"/>
         </div>
         <br/>
         <div>
-            <button type="submit">Go</button>
+            <button class="button" type="submit">Go</button>
         </div>
     </form>
 </div>

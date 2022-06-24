@@ -6,7 +6,7 @@ module.exports = (req, res) => {
     User.create(req.body,  (error, user) => {
         if(error){
             console.log("Error")
-            return res.redirect("/users/register");
+            return res.redirect("/auth/register");
         }
         res.redirect("/");
     })
