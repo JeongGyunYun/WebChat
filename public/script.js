@@ -1,11 +1,10 @@
-const socket = io("/", {transports: ['polling']});
+const socket = io("/");
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
-
-var peer = new Peer(undefined, {
+var peer = Peer(undefined, {
   path: "/peerjs",
   host: "/",
-  port: "3030",
+  port: "443",
 });
 
 const user = " "
