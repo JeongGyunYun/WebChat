@@ -1,8 +1,13 @@
 const socket = io("/");
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
-const peers = {};
-const peer = new Peer();
+
+var peer = new Peer(undefined, {
+  path: "/peerjs",
+  host: "/",
+  port: "443",
+});
+
 
 let myVideoStream;
 myVideo.muted = true;
@@ -34,7 +39,6 @@ const connectToNewUser = (userId, stream) => {
   call.on("stream", (userVideoStream) => {
     addVideoStream(video, userVideoStream);
   });
-  peers[userId] = call;
 };
 
 peer.on("open", (id) => {
