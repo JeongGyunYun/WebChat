@@ -1,5 +1,6 @@
 const express = require("express");
 const app = new express();
+const fs = require("fs");
 const server = require("http").Server(app);
 const { v4: uuidv4 } = require("uuid");
 const mongoose = require('mongoose');
@@ -7,12 +8,12 @@ const expressSession = require('express-session')
 
 const io = require("socket.io")(server);
 
-const { ExpressPeerServer } = require("peer");
-const peerServer = ExpressPeerServer(server, {
-    debug: true,
-});
-
-app.use("/peerjs", peerServer);
+// const { ExpressPeerServer } = require("peer");
+// const peerServer = ExpressPeerServer(server, {
+//     debug: true,
+// });
+//
+// app.use("/peerjs", peerServer);
 
 app.use(express.static("public"));
 app.use(express.json())
@@ -27,12 +28,8 @@ app.set("view engine", "ejs");
 
 server.listen(process.env.PORT || 3030);
 
-io.on('connection', (socket) => {
-    socket.on('join-room', (roomId, userId) => {
-        socket.join(roomId);
-        socket.to(roomId).broadcast.emit("user-connected", userId);
-    })
-})
+const socketController = require('./controllers/socketUser');
+io.on('connection', socketController);
 
 
 const newUserController = require('./controllers/newUser');
@@ -44,6 +41,7 @@ const roomController = require("./controllers/room")
 const enterRoomController = require("./controllers/createRoom");
 const logoutController = require("./controllers/logout");
 const authMiddle = require("./middleware/authMiddle")
+
 
 app.get("/auth/register", newUserController)
 app.get("/auth/login", loginController);

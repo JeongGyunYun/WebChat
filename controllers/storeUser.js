@@ -6,7 +6,9 @@ module.exports = (req, res) => {
     User.create(req.body,  (error, user) => {
         if(error){
             console.log("Error")
-            return res.redirect("/auth/register");
+            res.write("<script charset='UTF-8'>alert('Fail to Register')</script>")
+            res.write("<script>window.location='/auth/register'</script>");
+            return
         }
         res.redirect("/");
     })

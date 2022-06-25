@@ -12,10 +12,12 @@ module.exports = (req, res) => {
                 return res.redirect('/');
 
             } else {
-                res.redirect('/auth/login');
+                res.write("<script charset='UTF-8'>alert('Fail to Login')</script>")
+                res.write("<script>window.location='/auth/login'</script>");
             }
         } else {
-            res.redirect('/auth/login');
+            res.write("<script charset='UTF-8'>alert('Fail to Login')</script>")
+            res.write("<script>window.location='/auth/login'</script>");
         }
     });
 }
